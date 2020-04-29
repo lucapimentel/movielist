@@ -1,0 +1,22 @@
+@import "components/fonts";
+@import "components/card";
+@import "components/carousel";
+@import "components/footer";
+@import "components/header";
+@import "components/grid";
+@import "components/banner";
+@import "components/searchbar";
+
+@import "pages";
+
+body {
+  font-family: "Montserrat";
+  color: #8d8d8d;
+  font-size: 14px;
+  transition: left 0.3s ease-in-out !important;
+}
+
+.page-container {
+  position: relative;
+  left: 0;
+}

@@ -1,0 +1,40 @@
+.blog-post {
+  min-width: 840px;
+  float: unset;
+  margin: 1.5em auto;
+  h1 {
+    font-size: 36px;
+    line-height: 110%;
+    font-weight: 600;
+    color: #505050;
+  }
+  header {
+    align-items: flex-start;
+    align-content: stretch;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column nowrap;
+    height: 100%;
+  }
+  .blog-post-image-container {
+    margin-top: 25px;
+    img {
+      width: 100%;
+    }
+  }
+  .blog-post-meta-container {
+    .author {
+      font-weight: 600;
+      margin-right: 25px;
+    }
+  }
+  .blog-post-content {
+    p {
+      line-height: 1.8;
+      font-size: 16px;
+      color: #8d8d8d;
+      margin-bottom: 15px;
+      padding: 25px 0;
+    }
+  }
+}

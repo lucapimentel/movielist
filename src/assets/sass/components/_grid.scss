@@ -1,0 +1,45 @@
+.grid {
+  height: 130em;
+  &-container {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 60px;
+
+    &-header {
+      display: table;
+      margin: 20px auto;
+      margin-bottom: 85px;
+      button:not(:last-child) {
+        margin-right: 20px;
+      }
+      .filter-item {
+        color: #8d8d8d;
+        background-color: #fff;
+        border-radius: 100px;
+        padding: 6px 15px;
+        border: 1px solid #e6e6e6;
+        cursor: pointer;
+        &:not(:last-child) {
+          margin-right: 20px;
+        }
+      }
+
+      .filter-item:hover,
+      .active {
+        background-color: #a12921;
+        border-color: #a12921;
+        font-weight: 600;
+        color: #fff;
+      }
+    }
+
+    &-content {
+      width: 100%;
+      height: 100%;
+    }
+
+    &-footer {
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.banner-container {
+  height: 600px;
+  position: relative;
+  padding-top: 10px;
+  .banner-content {
+    background-image: url("../../images/banner.jpg");
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
+  }
+  .banner-overlay {
+    position: absolute;
+    top: 10px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    background-color: rgba(47, 47, 47, 0.62);
+    .banner-title {
+        padding: 10% 0;
+        width: 100%;
+        text-align: center;
+      .title {
+        font-size: 100px;
+        color: #ce492d;
+        margin-bottom: 10px;
+        font-family: "Montserrat";
+      }
+
+      .sub-title {
+        color: #fff;
+      }
+    }
+  }
+}
