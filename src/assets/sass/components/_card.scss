@@ -1,9 +1,9 @@
-article {
+.card {
   width: 32%;
   float: left;
   margin-bottom: 45px;
 
-  .post-container {
+  .card-container {
     margin: 0 15px;
     position: relative;
     box-shadow: 0px 10px 11px 0px rgba(0, 0, 0, 0.05);
@@ -32,7 +32,7 @@ article {
       border: 2px solid #fff;
       white-space: nowrap;
     }
-    .post-thumb {
+    .card-thumb {
       &:hover {
         img {
           transform: translate3d(0, 0, 0) scale(1.1, 1.1);
@@ -116,11 +116,11 @@ article {
         }
       }
     }
-    .post-content {
+    .card-content {
       position: relative;
       padding-left: 30px;
       padding-right: 30px;
-      .post-title {
+      .card-title {
         margin-top: 30px;
         margin-bottom: 10px;
         color: #505050;
@@ -138,19 +138,19 @@ article {
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
       }
-      .post-metadata {
+      .card-metadata {
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
         margin-bottom: 10px;
         padding: 10px 0;
-        .post-author {
+        .card-author {
           font-weight: 600;
         }
-        .post-date {
+        .card-date {
         }
       }
-      .post-content-text {
+      .card-content-text {
         padding-bottom: 15px;
         word-break: break-word;
         p {
@@ -159,16 +159,21 @@ article {
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
         }
+
+        > div {
+          height: 70px;
+          overflow: hidden;
+        }
       }
-      .post-footer {
-        .post-footer-content {
+      .card-footer {
+        .card-footer-content {
           margin-left: -30px;
           margin-right: -30px;
           padding-left: 30px;
           padding: 15px 30px;
           border-top: 1px solid #e9e9e9;
 
-          .post-comments {
+          .card-comments {
             display: flex;
             flex-flow: row wrap;
             justify-content: space-between;
@@ -182,16 +187,20 @@ article {
 
 .feature-card {
   width: 96%;
-  .post-content {
+  .card-content {
     width: 100%;
     padding: 40px;
   }
 
-  .post-thumb {
+  .card-thumb {
     width: 100%;
   }
-  .post-container {
+  .card-container {
     display: flex;
     flex-flow: row nowrap;
   }
+}
+
+a {
+  text-decoration: none;
 }

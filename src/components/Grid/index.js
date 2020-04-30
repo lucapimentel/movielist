@@ -1,34 +1,55 @@
 import React, { useState, useEffect } from "react";
 import Grid from "../Grid/Grid";
 import SearchBarContainer from "../../components/SearchBar";
-import ApiHelper from "../../data/helper/ApiHelper";
+import PaginationContainer from "../Pagination";
+import getShows from "../Grid/helpers/getShows";
+import getShowsByQuery from "../Grid/helpers/getShowsByQuery";
 
 export default function GridContainer() {
-  const [movies, setMovies] = useState();
+  const [shows, setShows] = useState();
 
-    useEffect(() => {
-      ApiHelper.get("http://api.tvmaze.com/shows", "").then(function (
-        response
-      ) {
-        setMovies(response.slice(1, 10));
-      });
-    }, []);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [showsPerPage] = useState(20);
+
+  useEffect(() => {
+    getShows().then((response) => {
+      setShows(response);
+    });
+  }, []);
+
+  function paginate(pageNumber) {
+    setCurrentPage(pageNumber);
+  }
 
   function handleSearchSubmit(value) {
-    ApiHelper.get("http://api.tvmaze.com/search/shows", value).then(function (
-      response
-    ) {
-      let arrayOfMovies = Array.from(response, function (element) {
+    getShowsByQuery("q", value).then((response) => {
+      let arrayOfShows = Array.from(response, function (element) {
         return element.show;
       });
-      setMovies(arrayOfMovies);
+      setShows(arrayOfShows);
     });
   }
 
-  return (
-    <>
-      <SearchBarContainer searchSubmit={handleSearchSubmit} />
-      <Grid data={movies} />
-    </>
-  );
+  if (shows) {
+    const indexOfLastShows = currentPage * showsPerPage;
+    const indexOfFirstShows = indexOfLastShows - showsPerPage;
+    const currentShows = shows.slice(indexOfFirstShows, indexOfLastShows);
+
+    return (
+      <>
+        <SearchBarContainer searchSubmit={handleSearchSubmit} />
+        <div className="container">
+          <Grid data={currentShows} />
+          <PaginationContainer
+            dataPerPage={showsPerPage}
+            totalData={shows.length}
+            currentPage={currentPage}
+            paginate={paginate}
+          />
+        </div>
+      </>
+    );
+  } else {
+    return "";
+  }
 }

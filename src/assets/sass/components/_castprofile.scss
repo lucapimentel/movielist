@@ -1,0 +1,39 @@
+.cast-profile {
+  h2 {
+    margin-top: 50px;
+    font-weight: 500;
+    font-size: 30px;
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 20px;
+    color: #505050;
+  }
+  &-container {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 22%;
+    float: left;
+    padding: 18px;
+    align-items: center;
+  }
+  &-picture {
+    width: 35%;
+    margin-right: 30px;
+
+    img {
+      width: 100%;
+    }
+  }
+  &-info {
+    .label {
+        
+    }
+    .info-value {
+        font-size: 10px;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-flow: column;
+}

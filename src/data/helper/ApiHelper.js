@@ -1,16 +1,7 @@
 export default class ApiHelper {
-  static async get(url, query = "") {
-    let formatedUrl = formatUrlQuery(url, query);
-    return fetchRequest("GET", formatedUrl);
+  static async get(url) {
+    return fetchRequest("GET", url);
   }
-}
-
-function formatUrlQuery(url, query) {
-  let urlParams = new URLSearchParams();
-  urlParams.append("q", query.toString());
-
-  let parametizedUrl = query !== "" ? `${url}?${urlParams}` : url;
-  return parametizedUrl;
 }
 
 async function fetchRequest(method, url) {

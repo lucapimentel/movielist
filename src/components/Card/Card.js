@@ -5,74 +5,71 @@ import {
   FaRegCommentDots,
 } from "react-icons/fa";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function Card(props) {
   function renderCardThumbnail() {
-    if (props) {
-        console.log(props);
-      const image =
-        props.data.image !== null
-          ? props.data.image.medium
-          : "https://bitsofco.de/content/images/2018/12/Screenshot-2018-12-16-at-21.06.29.png";
-      return (
-        <div className="post-thumb">
-          <img src={image} alt="" />
-          <div className="overlay">
-            <div className="overlay-content">
-              <div className="action-buttons">
-                <div>
+    const { image, id } = props;
+    return (
+      <div className="card-thumb">
+        <img src={image} alt="" />
+        <div className="overlay">
+          <div className="overlay-content">
+            <div className="action-buttons">
+              <div>
+                <Link to={`/details/${id}`}>
                   <FaExternalLinkAlt />
-                </div>
+                </Link>
               </div>
-              <div className="action-buttons">
-                <div>
-                  <a href={image}>
-                    <FaSearchPlus />
-                  </a>
-                </div>
+            </div>
+            <div className="action-buttons">
+              <div>
+                <a href={image}>
+                  <FaSearchPlus />
+                </a>
               </div>
             </div>
           </div>
         </div>
-      );
-    }
+      </div>
+    );
   }
 
   function renderCardContent() {
-    if (props) {
-      const { name, summary, type, rating } = props.data;
-      return (
-        <div className="post-content">
-          <h2 className="post-title">{name}</h2>
-          <div className="post-metadata">
-            <span className="post-author">{type}</span>
-            <span className="post-date">
-              {rating.average !== null ? rating.average : "Not Scored"}
-            </span>
-          </div>
-          <div className="post-content-text">
-            <div
-              dangerouslySetInnerHTML={{
-                __html: summary,
-              }}
-            ></div>
-          </div>
-          <div className="post-footer">
-            <div className="post-footer-content">
-              <div className="post-comments">
-                <FaRegCommentDots />
-                <span className="post-footer-comment-counter">0</span>
-              </div>
+    const { name, genres, summary, rating, id } = props;
+    return (
+      <div className="card-content">
+        <Link to={`/details/${id}`}>
+          <h2 className="card-title">{name}</h2>
+        </Link>
+        <div className="card-metadata">
+          <span className="card-author">{genres}</span>
+          <span className="card-date">
+            {rating.average !== null ? rating.average : "Not Scored"}
+          </span>
+        </div>
+        <div className="card-content-text">
+          <div
+            dangerouslySetInnerHTML={{
+              __html: summary,
+            }}
+          ></div>
+        </div>
+        <div className="card-footer">
+          <div className="card-footer-content">
+            <div className="card-comments">
+              <FaRegCommentDots />
+              <span className="card-footer-comment-counter">0</span>
             </div>
           </div>
         </div>
-      );
-    }
+      </div>
+    );
   }
 
   return (
     <article className="card">
-      <div className="post-container">
+      <div className="card-container">
         {renderCardThumbnail()}
         {renderCardContent()}
       </div>
@@ -81,5 +78,9 @@ export default function Card(props) {
 }
 
 Card.prototypes = {
-  data: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  summary: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  genres: PropTypes.string.isRequired,
 };
