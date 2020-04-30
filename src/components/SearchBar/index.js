@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar";
 import PropTypes from "prop-types";
 
 export default function SearchBarContainer({ searchSubmit }) {
-  const [searchValue, setSearchValue] = useState();
+  const [searchValue, setSearchValue] = useState("");
 
   function handleChange(e) {
     setSearchValue(e.target.value);

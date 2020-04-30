@@ -1,16 +1,21 @@
 import React from "react";
 import logo from "../../assets/images/logo.jpg";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function Header() {
+  let history = useHistory();
   return (
     <div data-test="header">
       <header>
         <div className="header-container">
           <div className="header-content">
-            <Link to="/">
-              <img src={logo} alt="" />
-            </Link>
+            <img
+              src={logo}
+              alt=""
+              onClick={() => {
+                history.push("/");
+              }}
+            />
             <div className="header-links">
               <div className="header-link-item">People</div>
               <div className="header-link-item">Network</div>

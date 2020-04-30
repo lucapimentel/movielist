@@ -5,7 +5,7 @@ import HeaderContainer from "../../components/Header";
 export default class Home extends Component {
   render() {
     return (
-      <div data-test="home" className="page-container">
+      <div data-testid="home" className="page-container">
         <HeaderContainer />
         <GridContainer />
       </div>

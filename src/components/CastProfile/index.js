@@ -6,14 +6,13 @@ import PropTypes from "prop-types";
 
 export default function CastProfileContainer(props) {
   const { showId } = props;
-  const [cast, setCast] = useState();
+  const [cast, setCast] = useState([]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [castPerPage] = useState(10);
 
   useEffect(() => {
     getCastByShowId(showId).then((response) => {
-      console.log(response);
       setCast(response);
     });
   }, [showId]);

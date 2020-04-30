@@ -15,7 +15,7 @@ export default function Grid(props) {
     }
   }
   return (
-    <div data-test="grid">
+    <div data-testid="grid">
       <div className="grid">
         <div className="grid-container">
           <div className="grid-container-content">{renderShowCards()}</div>

@@ -6,7 +6,7 @@ import getShows from "../Grid/helpers/getShows";
 import getShowsByQuery from "../Grid/helpers/getShowsByQuery";
 
 export default function GridContainer() {
-  const [shows, setShows] = useState();
+  const [shows, setShows] = useState([]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [showsPerPage] = useState(20);
@@ -36,7 +36,7 @@ export default function GridContainer() {
     const currentShows = shows.slice(indexOfFirstShows, indexOfLastShows);
 
     return (
-      <>
+      <div data-testid="gridcontainer">
         <SearchBarContainer searchSubmit={handleSearchSubmit} />
         <div className="container">
           <Grid data={currentShows} />
@@ -47,7 +47,7 @@ export default function GridContainer() {
             paginate={paginate}
           />
         </div>
-      </>
+      </div>
     );
   } else {
     return "";

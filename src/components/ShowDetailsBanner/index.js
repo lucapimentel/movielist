@@ -32,7 +32,6 @@ export default function ShowDetailsBannerContainer(props) {
       rating,
       network,
     } = show;
-
     return (
       <ShowDetailsBanner
         name={name}

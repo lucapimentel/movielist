@@ -5,9 +5,10 @@ import {
   FaRegCommentDots,
 } from "react-icons/fa";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function Card(props) {
+  let history = useHistory();
   function renderCardThumbnail() {
     const { image, id } = props;
     return (
@@ -17,9 +18,11 @@ export default function Card(props) {
           <div className="overlay-content">
             <div className="action-buttons">
               <div>
-                <Link to={`/details/${id}`}>
-                  <FaExternalLinkAlt />
-                </Link>
+                <FaExternalLinkAlt
+                  onClick={() => {
+                    history.push(`/details/${id}`);
+                  }}
+                />
               </div>
             </div>
             <div className="action-buttons">
@@ -38,10 +41,15 @@ export default function Card(props) {
   function renderCardContent() {
     const { name, genres, summary, rating, id } = props;
     return (
-      <div className="card-content">
-        <Link to={`/details/${id}`}>
-          <h2 className="card-title">{name}</h2>
-        </Link>
+      <div className="card-content" data-testid="card">
+        <h2
+          className="card-title"
+          onClick={() => {
+            history.push(`/details/${id}`);
+          }}
+        >
+          {name}
+        </h2>
         <div className="card-metadata">
           <span className="card-author">{genres}</span>
           <span className="card-date">
